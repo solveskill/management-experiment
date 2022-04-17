@@ -1,14 +1,18 @@
 {
-  "editor.tabSize": 2,
-  "files.trimTrailingWhitespace": true,
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "[prisma]": {
-    "editor.formatOnSave": true
-  },
-  "cSpell.words": [
-    "Kembang"
-  ]
+	"editor.tabSize": 2,
+	"files.trimTrailingWhitespace": true,
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"[prisma]": {
+		"editor.formatOnSave": true
+	},
+	"cSpell.words": [
+		"Chakra",
+		"Fastify",
+		"Kembang",
+		"Parens",
+		"redwoodjs"
+	]
 }

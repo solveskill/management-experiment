@@ -1,5 +1,7 @@
-const { getPaths } = require('@redwoodjs/internal')
+/* eslint-disable unicorn/prefer-module */
+
+const {getPaths} = require('@redwoodjs/internal');
 
 module.exports = {
-  schema: getPaths().generated.schema,
-}
+	schema: getPaths().generated.schema,
+};

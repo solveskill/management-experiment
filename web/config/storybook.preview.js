@@ -1,13 +1,13 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { ChakraProvider } from '@chakra-ui/react'
+import {ChakraProvider} from '@chakra-ui/react';
 
-const withChakra = (StoryFn) => {
-  return (
-    <ChakraProvider>
-      <StoryFn />
-    </ChakraProvider>
-  )
-}
+const withChakra = (StoryFunction) => {
+	return (
+		<ChakraProvider>
+			<StoryFunction />
+		</ChakraProvider>
+	);
+};
 
-export const decorators = [withChakra]
+export const decorators = [withChakra];
