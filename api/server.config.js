@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prefer-module */
+
 /**
  * This file allows you to configure the Fastify Server settings
  * used by the RedwoodJS dev server.
@@ -14,10 +16,10 @@
 
 /** @type {import('fastify').FastifyServerOptions} */
 const config = {
-  requestTimeout: 15_000,
-  logger: {
-    level: process.env.NODE_ENV === 'development' ? 'debug' : 'warn',
-  },
-}
+	requestTimeout: 15_000,
+	logger: {
+		level: process.env.NODE_ENV === 'development' ? 'debug' : 'warn',
+	},
+};
 
-module.exports = config
+module.exports = config;
