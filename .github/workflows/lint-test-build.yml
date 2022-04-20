@@ -35,25 +35,25 @@ jobs:
             yarn-1234
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install
 
-      - name: Lint
-        run: yarn rw lint --fix
+      # - name: Lint
+      #   run: yarn rw lint --fix
 
       - name: Print github event object
-        run: echo '${{ toJSON(github) }}'
+        run: echo '${{ toJSON(github.event) }}'
 
-      # - name: Test web & api
-      #   if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
-      #   run: yarn rw test --no-watch
+      - name: Test web & api
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
+        run: yarn rw test --no-watch
 
-      # - name: Test web
-      #   if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api') }}
-      #   run: yarn rw test web --no-watch
+      - name: Test web
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api') }}
+        run: yarn rw test web --no-watch
 
-      # - name: Test api
-      #   if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web') }}
-      #   run: yarn rw test api --no-watch
+      - name: Test api
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web') }}
+        run: yarn rw test api --no-watch
 
       # - name: Build web & api
       #   if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
