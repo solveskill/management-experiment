@@ -5,7 +5,7 @@ on:
     branches:
       - development
       - master
-      - release/**
+      - 'release/**'
 
 jobs:
   all:
