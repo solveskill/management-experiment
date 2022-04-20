@@ -40,8 +40,28 @@ jobs:
       - name: Lint
         run: yarn rw lint --fix
 
-      - name: Test
+      - name: Test web & api
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
         run: yarn rw test --no-watch
 
-      - name: Build
+      - name: Test web
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api') }}
+        run: yarn rw test web --no-watch
+
+      - name: Test api
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web') }}
+        run: yarn rw test api --no-watch
+
+      - name: Build web & api
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
         run: yarn rw build
+
+      - name: Build web
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api')}}
+        run: yarn rw build web
+
+      - name: Build api
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web')}}
+        run: yarn rw build api
+
+
