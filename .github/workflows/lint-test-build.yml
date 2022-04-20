@@ -19,8 +19,21 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Cache yarn
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-1234
+
       - name: Install dependencies
-        run: yarn
+        run: yarn install --immutable
 
       - name: Lint
         run: yarn rw lint --fix
