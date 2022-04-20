@@ -41,7 +41,7 @@ jobs:
         run: yarn rw lint --fix
 
       - name: Print github event object
-        run: echo ${{ github.event }}
+        run: echo '${{ toJSON(github) }}'
 
       # - name: Test web & api
       #   if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
