@@ -18,6 +18,8 @@ jobs:
 
       - name: Labeling
         uses: actions/labeler@v4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
