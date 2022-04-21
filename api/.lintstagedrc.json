@@ -1,4 +1,3 @@
 {
-	"!(*.{js,ts})": "prettier --write",
-	"*.{js,ts}": "yarn rw lint --fix"
+	"*.{ts,js}": "eslint --fix"
 }
