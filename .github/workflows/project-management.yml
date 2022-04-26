@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - development
+    types: [opened]
 
   workflow_dispatch:
 
