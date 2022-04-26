@@ -69,3 +69,4 @@ jobs:
       - name: Build api
         if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web')}}
         run: yarn rw build api
+
