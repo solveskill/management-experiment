@@ -1,11 +1,9 @@
-name: Lint, Test, & Build
+name: Code Quality
 
 on:
   pull_request:
     branches:
       - development
-      - master
-      - 'release/**'
 
   workflow_dispatch:
 
@@ -15,11 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Labeling
-        uses: actions/labeler@v4
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3

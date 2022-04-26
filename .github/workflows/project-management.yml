@@ -1,0 +1,18 @@
+name: Project Management
+
+on:
+  pull_request:
+    branches:
+      - development
+
+  workflow_dispatch:
+
+jobs:
+  labeling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Labeling
+        uses: actions/labeler@v4
