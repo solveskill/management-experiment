@@ -2,11 +2,8 @@ name: Project Management
 
 on:
   pull_request:
-    branches:
-      - development
+    branches: [development]
     types: [opened]
-
-  workflow_dispatch:
 
 jobs:
   labeling:
