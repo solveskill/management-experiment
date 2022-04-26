@@ -13,6 +13,8 @@ on:
 
   workflow_dispatch:
 
+  workflow_call:
+
 jobs:
   lint-test-build:
     runs-on: ubuntu-latest
