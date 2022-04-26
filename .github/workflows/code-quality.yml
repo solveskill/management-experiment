@@ -7,8 +7,7 @@ on:
     types: [labeled, synchronize]
 
   workflow_run:
-    workflows:
-      - "Project Management"
+    workflows: [Project Management]
     types:
       - completed
 
