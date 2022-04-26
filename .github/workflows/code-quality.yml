@@ -1,13 +1,13 @@
 name: Code Quality
 
 on:
+  workflow_run:
+    workflows: ["Project Management"]
+    types: [completed]
+
   # pull_request:
   #   branches: [development]
   #   types: [labeled, synchronize]
-
-  workflow_run:
-    workflows: ["Project Management"]
-    # types: [completed]
 
   # workflow_dispatch:
 
