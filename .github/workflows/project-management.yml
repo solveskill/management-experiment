@@ -1,4 +1,4 @@
-name: Project Management
+name: projects
 
 on:
   pull_request:

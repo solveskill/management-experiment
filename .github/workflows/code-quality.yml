@@ -2,8 +2,8 @@ name: Code Quality
 
 on:
   workflow_run:
-    workflows: ["Project Management"]
-    branches: [development]
+    workflows:
+      - projects
     types: [completed]
 
   pull_request:

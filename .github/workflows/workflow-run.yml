@@ -2,9 +2,7 @@ name: Workflow Run Testing
 
 on:
   workflow_run:
-    workflows: ["Project Management"]
-    branches: [development]
-    types: [completed]
+    workflows: [projects]
 
 jobs:
   workflow-run:
