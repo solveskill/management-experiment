@@ -1,0 +1,11 @@
+name: Workflow Main
+
+on:
+  pull_request:
+
+jobs:
+  work:
+    name: Some Workflow Main Work
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Some Main work"

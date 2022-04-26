@@ -1,68 +1,68 @@
-name: Code Quality
+# name: Code Quality
 
-on:
-  workflow_run:
-    workflows:
-      - projects
-    types: [completed]
+# on:
+#   workflow_run:
+#     workflows:
+#       - projects
+#     types: [completed]
 
-  pull_request:
-    branches: [development]
-    types: [labeled, unlabeled, synchronize]
+#   pull_request:
+#     branches: [development]
+#     types: [labeled, unlabeled, synchronize]
 
-  workflow_dispatch:
+#   workflow_dispatch:
 
-jobs:
-  lint-test-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+# jobs:
+#   lint-test-build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+#       - name: Setup Node.js environment
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '16'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+#       - name: Get yarn cache directory path
+#         id: yarn-cache-dir-path
+#         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Cache yarn
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-1234
+#       - name: Cache yarn
+#         uses: actions/cache@v3
+#         id: yarn-cache
+#         with:
+#           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#           key: yarn-${{ hashFiles('**/yarn.lock') }}
+#           restore-keys: |
+#             yarn-1234
 
-      - name: Install dependencies
-        run: yarn install --immutable
+#       - name: Install dependencies
+#         run: yarn install --immutable
 
-      - name: Lint
-        run: yarn rw lint --fix
+#       - name: Lint
+#         run: yarn rw lint --fix
 
-      - name: Test web & api
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
-        run: yarn rw test --no-watch
+#       - name: Test web & api
+#         if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
+#         run: yarn rw test --no-watch
 
-      - name: Test web
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api') }}
-        run: yarn rw test web --no-watch
+#       - name: Test web
+#         if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api') }}
+#         run: yarn rw test web --no-watch
 
-      - name: Test api
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web') }}
-        run: yarn rw test api --no-watch
+#       - name: Test api
+#         if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web') }}
+#         run: yarn rw test api --no-watch
 
-      - name: Build web & api
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
-        run: yarn rw build
+#       - name: Build web & api
+#         if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && contains(github.event.pull_request.labels.*.name, 'api') }}
+#         run: yarn rw build
 
-      - name: Build web
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api')}}
-        run: yarn rw build web
+#       - name: Build web
+#         if: ${{ contains(github.event.pull_request.labels.*.name, 'web') && !contains(github.event.pull_request.labels.*.name, 'api')}}
+#         run: yarn rw build web
 
-      - name: Build api
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web')}}
-        run: yarn rw build api
+#       - name: Build api
+#         if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web')}}
+#         run: yarn rw build api
