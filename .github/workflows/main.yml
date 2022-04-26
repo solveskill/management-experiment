@@ -4,8 +4,9 @@ on:
   pull_request:
 
 jobs:
-  work:
-    name: Some Workflow Main Work
+  main-work:
+    name: Main workflow
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Some Main work"
+      - run: echo "Main workflow working!"
+

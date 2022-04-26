@@ -1,4 +1,4 @@
-name: Workflow Work
+name: Workflow Subsequent
 
 on:
   workflow_run:
@@ -8,8 +8,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  work:
-    name: Some Workflow Work
+  subsequent-work:
+    name: Subsequent workflow
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Some work"
+      - run: echo "Subsequent workflow working!"
+
