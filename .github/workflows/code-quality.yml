@@ -6,6 +6,12 @@ on:
       - development
     types: [labeled, synchronize]
 
+  workflow_run:
+    workflows:
+      - "Project Management"
+    types:
+      - completed
+
   workflow_dispatch:
 
 jobs:
