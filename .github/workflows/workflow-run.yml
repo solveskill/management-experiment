@@ -1,14 +1,12 @@
-name: Workflow Run Testing
+# name: Workflow Run Testing
 
-on:
-  workflow_run:
-    workflows: ["Project Management"]
-    branches: [development]
-    types: [completed]
+# on:
+#   workflow_run:
+#     workflows: [projects]
 
-jobs:
-  workflow-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Say something
-        run: echo 'Yey, It's work!'
+# jobs:
+#   workflow-run:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Say something
+#         run: echo 'Yey, It's work!'
