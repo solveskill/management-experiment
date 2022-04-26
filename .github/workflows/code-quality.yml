@@ -1,11 +1,14 @@
-name: Lint, Test, & Build
+name: Code Quality
 
 on:
+  workflow_run:
+    workflows: ["Project Management"]
+    branches: [development]
+    types: [completed]
+
   pull_request:
-    branches:
-      - development
-      - master
-      - 'release/**'
+    branches: [development]
+    types: [labeled, synchronize]
 
   workflow_dispatch:
 
@@ -15,11 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Labeling
-        uses: actions/labeler@v4
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
@@ -68,4 +66,3 @@ jobs:
       - name: Build api
         if: ${{ contains(github.event.pull_request.labels.*.name, 'api') && !contains(github.event.pull_request.labels.*.name, 'web')}}
         run: yarn rw build api
-

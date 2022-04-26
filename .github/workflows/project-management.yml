@@ -1,0 +1,15 @@
+name: Project Management
+
+on:
+  pull_request:
+    branches: [development]
+    types: [opened]
+
+jobs:
+  labeling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Labeling
+        uses: actions/labeler@v4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"

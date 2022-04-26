@@ -1,15 +1,30 @@
-api:
-- api/src/**/*
-
 web:
-- web/src/**/*
-- web/public/**/*
+  - web/src/**/*
+  - web/public/**/*
+  - web/README.md
+
+api:
+  - api/src/**/*
+  - api/README.md
 
 migration:
-- api/db/**/*
+  - api/db/**/*
 
-documentation:
-- README.md
+test:
+  - '*.test.{ts,js,tsx,jsx}'
+
+docs:
+  - any: ['README.md']
 
 workflow:
-- all: ['!api/src/**/*', '!web/src/**/*', '!api/db/**/*', '!README.md']
+  - all:
+      [
+        '!web/src/**/*',
+        '!web/public/**/*',
+        '!api/src/**/*',
+        '!api/db/**/*',
+        '!*.test.{ts,js,tsx,jsx}',
+        '!README.md',
+        '!web/README.md',
+        '!api/README.md',
+      ]
