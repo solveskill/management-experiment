@@ -1,12 +1,12 @@
-name: Workflow Main
+# name: Workflow Main
 
-on:
-  pull_request:
+# on:
+#   pull_request:
 
-jobs:
-  main-work:
-    name: Main workflow
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Main workflow working!"
+# jobs:
+#   main-work:
+#     name: Main workflow
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Main workflow working!"
 
