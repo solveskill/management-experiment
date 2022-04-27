@@ -6,7 +6,7 @@ const HomePage = () => {
 			<MetaTags title="Home" description="Scaling firework retail business" />
 
 			<h1>Kembang Api Home Page</h1>
-			<p>Scaling firework retail business</p>
+			<p>Scaling firework retail business!</p>
 		</>
 	);
 };
