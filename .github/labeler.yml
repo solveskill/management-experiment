@@ -11,7 +11,7 @@ migration:
   - api/db/**/*
 
 test:
-  - '*.test.{ts,js,tsx,jsx}'
+  - '**/*.test.{ts,js,tsx,jsx}'
 
 docs:
   - '**/README.md'
