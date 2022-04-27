@@ -30,6 +30,8 @@ function Header() {
   return <img src={logo} alt="Logo" />
 }
 
+Wohohoho santa is coming!
+
 export default Header
 ```
 
