@@ -23,8 +23,6 @@ workflow:
         '!web/public/**/*',
         '!api/src/**/*',
         '!api/db/**/*',
-        '!*.test.{ts,js,tsx,jsx}',
-        '!README.md',
-        '!web/README.md',
-        '!api/README.md',
+        '!**/*.test.{ts,js,tsx,jsx}',
+        '!**/README.md',
       ]
