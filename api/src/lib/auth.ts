@@ -23,3 +23,5 @@ export const hasRole = ({roles}) => {
 export const requireAuth = ({roles}) => {
 	return isAuthenticated();
 };
+
+// Just adding some useless comment
