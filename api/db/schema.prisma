@@ -21,3 +21,7 @@ model User {
   updatedAt           DateTime?
   deletedAt           DateTime?
 }
+
+model Customer {
+  id Int @id @default(autoincrement())
+}
