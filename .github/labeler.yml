@@ -14,7 +14,7 @@ test:
   - '*.test.{ts,js,tsx,jsx}'
 
 docs:
-  - any: ['README.md']
+  - '**/README.md'
 
 workflow:
   - all:
