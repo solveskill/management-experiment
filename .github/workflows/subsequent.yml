@@ -1,16 +1,16 @@
-name: Workflow Subsequent
+# name: Workflow Subsequent
 
-on:
-  workflow_run:
-    workflows: [ "Workflow Main" ]
-    types:
-      - completed
-  workflow_dispatch:
+# on:
+#   workflow_run:
+#     workflows: [ "Workflow Main" ]
+#     types:
+#       - completed
+#   workflow_dispatch:
 
-jobs:
-  subsequent-work:
-    name: Subsequent workflow
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Subsequent workflow working!"
+# jobs:
+#   subsequent-work:
+#     name: Subsequent workflow
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Subsequent workflow working!"
 
